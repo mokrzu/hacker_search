@@ -1,0 +1,17 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: hacker_search_development
+  host: localhost
+  pool: 5
+  username: pg_login
+  password: passwd
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: hacker_search_test
+  host: localhost
+  pool: 5
+  username: pg_login
+  password: passwd
