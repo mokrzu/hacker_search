@@ -15,8 +15,3 @@ test:
   pool: 5
   username: pg_login
   password: passwd
-
-travis_ci:
-  adapter: postgresql
-  database: travis_ci_test
-  username: postgres
