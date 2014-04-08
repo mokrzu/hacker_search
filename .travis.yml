@@ -1,0 +1,9 @@
+language: ruby
+rvm:
+  - 2.1.0
+
+services:
+  - elasticsearch
+
+before_script:
+  - psql -c 'create database travis_ci_test;' -U postgres

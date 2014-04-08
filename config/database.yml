@@ -7,7 +7,7 @@ development:
   username: pg_login
   password: passwd
 
-test:
+local_test:
   adapter: postgresql
   encoding: unicode
   database: hacker_search_test
@@ -15,3 +15,8 @@ test:
   pool: 5
   username: pg_login
   password: passwd
+
+test:
+  adapter: postgresql
+  database: travis_ci_test
+  username: postgres
