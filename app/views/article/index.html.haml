@@ -1,0 +1,32 @@
+.row#search_form
+  = simple_form_for @search, as: :search, url: article_index_path, method: :get do |f|
+    .row.collapse
+      .small-2.columns
+      .small-6.columns.small-offset-2
+        = f.text_field :query
+      .small-2.columns
+        .form-actions
+          = f.button :submit, 'Find out!', :class => "postfix"
+      .small-2.columns
+
+  - if !@articles.nil? && @articles.any?
+    %table
+      %thead
+        %tr
+          %th{ width: "530" } Title
+          %th{ width: "130" } Submitted at
+          %th{ width: "100" } Author
+          %th{ width: "80" } Points        
+          %th{ width: "150" } Comments count
+      %tbody
+      - @articles.each do |article|
+        %tr
+          %td
+            %a{:title => article.title, :href => article.url } 
+              = article.title
+          %td= article.submitted_at
+          %td= article.author
+          %td= article.points
+          %td= article.comments_count
+  - else
+    Sorry, there's nothing here :[

@@ -10,7 +10,13 @@ gem 'active_data'
 
 gem 'ruby-hackernews'
 
+gem "boilerpipe"
+
 gem 'foundation-rails'
+
+gem 'haml-rails'
+
+gem 'simple_form'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'
@@ -36,6 +42,13 @@ gem 'jbuilder', '~> 1.2'
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
+end
+
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0.0.beta'
+  gem 'capybara'
+  gem 'elasticsearch-extensions'
+  gem 'factory_girl_rails'
 end
 
 # Use ActiveModel has_secure_password
