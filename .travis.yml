@@ -7,3 +7,7 @@ services:
 
 before_script:
   - psql -c 'create database travis_ci_test;' -U postgres
+
+addons:
+  code_climate:
+    repo_token: ef43aa10c90a51912f6c6cb6dce1874f667bb8aea5a7ac77e74e6dda3fb9dd16
