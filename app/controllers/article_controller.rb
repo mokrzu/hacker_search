@@ -5,7 +5,7 @@ class ArticleController < ApplicationController
     if !params[:search].nil? && !params[:search].empty?
       @articles = @search.search.only(:id).load(
         article: { scope: Article }
-      ).sort_by { |article| -article.points } 
+      ).sort_by { |article| -article.points }
     end
   end
 end

@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe Article do
-  
   context 'when valid' do
 
     let!(:article) { build(:article) }
@@ -17,7 +16,7 @@ describe Article do
 
   context 'when title not valid' do
     let!(:invalid_article) { build(:article, title: "") }
-    
+
     specify { expect(invalid_article).not_to be_valid }
   end
 

@@ -14,8 +14,11 @@ class ArticleSearch
   end
 
   def query_string
-    index.query(query_string: { fields: [:title, :content],
-                                query: query, default_operator: 'and'}) if query?
+    if query?
+      index.query(query_string: { fields: [:title, :content],
+                                  query: query,
+                                  default_operator: 'and'})
+    end
   end
 
   def title_filter
