@@ -10,9 +10,9 @@ class HackerNewsImporter
   private
 
   def save_entry(entry)
-      article = Article.where( source_id: entry.id ).first_or_initialize
-      create_or_update(article, entry)
-      article.save
+    article = Article.where( source_id: entry.id ).first_or_initialize
+    create_or_update(article, entry)
+    article.save
   end
 
   def create_or_update(article, entry)
@@ -22,10 +22,9 @@ class HackerNewsImporter
       article.content = extract_content(entry.link.href)
       article.author = entry.user.name
       article.submitted_at = entry.time
-      set_current_counters(article, entry)
-    else
-      set_current_counters(article, entry)
     end
+
+    set_current_counters(article, entry)
   end
 
   def set_current_counters(article, entry)
