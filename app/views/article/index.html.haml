@@ -9,7 +9,7 @@
           = f.button :submit, 'Find out!', :class => "postfix"
       .small-2.columns
 
-  - if !@articles.blank?
+  - unless @articles.blank?
     %table
       %thead
         %tr
@@ -29,4 +29,7 @@
           %td= article.points
           %td= article.comments_count
   - else
-    Sorry, there's nothing here :[
+    - if @error
+      = @error
+    - else
+      Sorry, there's nothing here :[

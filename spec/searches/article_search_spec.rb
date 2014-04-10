@@ -31,5 +31,6 @@ describe ArticleSearch do
     specify { expect(search(title: "developer").load).to eq([first_article]) }
     specify { expect(search(title: "painter").load).to eq([second_article]) }
     specify { expect(search(source_id: 2).load).to eq([second_article])}
+    specify { expect(search(query: "developer").load).to eq([first_article])}
   end
 end
