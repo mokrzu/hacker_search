@@ -46,7 +46,6 @@ end
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0.beta'
-  gem 'capybara'
   gem 'elasticsearch-extensions'
   gem 'factory_girl_rails'
 end

@@ -5,7 +5,7 @@ class ArticleController < ApplicationController
     unless params[:search].blank?
       @articles = @search.search.only(:id).load(
         article: { scope: Article }
-      ).sort_by { |article| -article.points }
+      ).compact.sort_by { |article| -article.points }
     end
   end
 end
