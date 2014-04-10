@@ -5,7 +5,7 @@ gem 'rails', '4.0.4'
 
 gem 'pg'
 
-gem 'chewy'
+gem 'chewy', '>= 0.4.0'
 gem 'active_data'
 
 gem 'ruby-hackernews'

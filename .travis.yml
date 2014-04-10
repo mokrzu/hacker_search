@@ -2,12 +2,13 @@ language: ruby
 rvm:
   - 2.1.0
 
-services:
-  - elasticsearch
+before_install:
+  - curl -# https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.0.1.tar.gz | tar xz -C /tmp
 
 before_script:
   - "cp config/database.yml.travis config/database.yml"
   - psql -c 'create database travis_ci_test;' -U postgres
+  - TEST_CLUSTER_COMMAND="/tmp/elasticsearch-1.0.1/bin/elasticsearch" rake elasticsearch:start
 
 addons:
   code_climate:
