@@ -5,11 +5,10 @@
 [![Build Status](https://travis-ci.org/mokrzu/hacker_search.svg?branch=travis)](https://travis-ci.org/mokrzu/hacker_search)
 [![Dependency Status](https://gemnasium.com/mokrzu/hacker_search.svg)](https://gemnasium.com/mokrzu/hacker_search)
 
-Analyse and query Hacker News articles, using Chewy(ElasticSearch) and Rails 4.
-Project in development....
+Analyse and query Hacker News articles, using Chewy(ElasticSearch gem) and Rails 4.
+Project in active development.
 
 TODO:
-* improve specs coverage
 * add additional query fields: [date range, points range, article type]
 * analyzers picker
 * worker for importing articles periodically

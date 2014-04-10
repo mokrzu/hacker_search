@@ -37,7 +37,9 @@ describe HackerNewsImporter do
               source_id: 42)
     end
 
-    before { Article.stub_chain(:where, :first_or_initialize).and_return article }
+    before do
+      Article.stub_chain(:where, :first_or_initialize).and_return article
+    end
 
     it "updates points" do
       article.should_receive(:points=).with(9)

@@ -9,20 +9,20 @@
           = f.button :submit, 'Find out!', :class => "postfix"
       .small-2.columns
 
-  - if !@articles.nil? && @articles.any?
+  - if !@articles.blank?
     %table
       %thead
         %tr
           %th{ width: "530" } Title
           %th{ width: "130" } Submitted at
           %th{ width: "100" } Author
-          %th{ width: "80" } Points        
+          %th{ width: "80" } Points
           %th{ width: "150" } Comments count
       %tbody
       - @articles.each do |article|
         %tr
           %td
-            %a{:title => article.title, :href => article.url } 
+            %a{:title => article.title, :href => article.url }
               = article.title
           %td= article.submitted_at
           %td= article.author

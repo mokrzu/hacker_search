@@ -2,7 +2,7 @@ class ArticleController < ApplicationController
   def index
     @search = ArticleSearch.new(params[:search])
 
-    if !params[:search].nil? && !params[:search].empty?
+    unless params[:search].blank?
       @articles = @search.search.only(:id).load(
         article: { scope: Article }
       ).sort_by { |article| -article.points }
