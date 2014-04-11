@@ -9,6 +9,13 @@ Analyse and query Hacker News articles, using Chewy(ElasticSearch gem) and Rails
 
 Project in active development.
 
+Use HackerNewsImporter class for updates:
+```ruby
+$ rails c
+> HackerNewsImporter.new.import(9) # import last 9 pages from HackerNews
+....
+```
+
 ===
 
 ####Todo list:
