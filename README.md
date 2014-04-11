@@ -39,7 +39,7 @@ Instead of using default Elastisearch service, which leads to collision between 
 services:
   - elasticsearch
 ```
-Install and run test cluster manualy:
+Install and run test cluster manually:
 ```yml
 # .tavis.yml
 before_install:
@@ -48,7 +48,7 @@ before_install:
 before_script:
   - TEST_CLUSTER_COMMAND="/tmp/elasticsearch-1.0.1/bin/elasticsearch" bundle exec rake elasticsearch:start
 ```
-Now you could specify expicit ES version, and options, if you want.
+Now you could specify explicit ES version, and options, if you want.
 
 **Elasticsearch GUI** could help with debugging.
 
