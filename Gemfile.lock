@@ -32,9 +32,9 @@ GEM
     arel (4.0.2)
     boilerpipe (0.0.4)
     builder (3.1.4)
-    chewy (0.3.0)
+    chewy (0.4.0)
       activesupport (>= 3.2)
-      elasticsearch
+      elasticsearch (>= 1.0.0)
     codeclimate-test-reporter (0.3.0)
       simplecov (>= 0.7.1, < 1.0.0)
     coffee-rails (4.0.1)
@@ -207,7 +207,7 @@ PLATFORMS
 DEPENDENCIES
   active_data
   boilerpipe
-  chewy
+  chewy (>= 0.4.0)
   codeclimate-test-reporter
   coffee-rails (~> 4.0.0)
   elasticsearch-extensions
