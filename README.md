@@ -25,6 +25,8 @@ Project in active development.
 
 **Travis integration**
 
+Thanks [Chewy Example](https://github.com/toptal/chewy_example) for configuration hint.
+
 Instead of using default Elastisearch service, which leads to collision between local and travis(test) ES ports:
 ```yml
 # .travis.yml
