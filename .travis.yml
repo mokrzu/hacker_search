@@ -8,7 +8,7 @@ before_install:
 before_script:
   - "cp config/database.yml.travis config/database.yml"
   - psql -c 'create database travis_ci_test;' -U postgres
-  - TEST_CLUSTER_COMMAND="/tmp/elasticsearch-1.0.1/bin/elasticsearch" rake elasticsearch:start
+  - TEST_CLUSTER_COMMAND="/tmp/elasticsearch-1.0.1/bin/elasticsearch" bundle exec rake elasticsearch:start
 
 addons:
   code_climate:
