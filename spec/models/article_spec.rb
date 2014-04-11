@@ -5,9 +5,7 @@ describe Article do
 
     let!(:article) { build(:article) }
 
-    it 'should be valid when create' do
-      expect(article).to be_valid
-    end
+    specify { expect(article).to be_valid }
 
     it 'should update index on save' do
       expect { article.save }.to update_index('article#article')

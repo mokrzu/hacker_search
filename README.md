@@ -50,5 +50,5 @@ Try:
 * [Marvel with build-in Sense browser](http://www.elasticsearch.org/overview/marvel/download/)
 * [ElasticSeach Head browser](http://mobz.github.io/elasticsearch-head/)
 
-**Gemnasium** integration, helped me find out bug,s coused by [outdated gems](https://gemnasium.com/mokrzu/hacker_search).
+**Gemnasium** integration, helped me find out bugs coused by [outdated gems](https://gemnasium.com/mokrzu/hacker_search).
 

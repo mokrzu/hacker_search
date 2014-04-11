@@ -8,7 +8,7 @@ describe ArticleIndex do
   context 'article uptdate' do
     let!(:article) { create(:article, source_id: 108) }
 
-    specify do
+    it 'updates index after model update' do
       expect do
         Article.where(source_id: 108).first.update(points: 300)
       end.to update_artilce_index(with: { points: 300 })
