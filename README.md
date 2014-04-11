@@ -11,7 +11,6 @@ Project in active development.
 
 Use HackerNewsImporter class for updates:
 ```ruby
-$ rails c
 > HackerNewsImporter.new.import(9) # import last 9 pages from HackerNews
 ....
 ```
@@ -59,3 +58,12 @@ Try:
 
 **Gemnasium** integration, helped me find out bugs coused by [outdated gems](https://gemnasium.com/mokrzu/hacker_search).
 
+**Text extraction**
+Boilerpipe(API) gem is depends on [external service](http://boilerpipe-web.appspot.com/), which could be unavailable.
+
+Alternative solution is to use [ruby-readability](https://github.com/cantino/ruby-readability/) gem, with custom settings:
+```ruby
+Readability::Document.new(source, tags: [], encoding: "UTF-8")
+                        .content
+                        .gsub(/(\s+)|\n/, " ")
+```
