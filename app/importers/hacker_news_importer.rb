@@ -1,5 +1,6 @@
 class HackerNewsImporter
   def import(pages=1)
+    @http_agent = Mechanize.new
     entries = RubyHackernews::Entry.all(pages)
 
     entries.each do |entry|
@@ -21,7 +22,7 @@ class HackerNewsImporter
       article.url = entry.link.href
       article.content = extract_content(entry.link.href)
       article.author = entry.user.name
-      article.submitted_at = entry.time
+      article.submitted_at = secure_time_extraction(entry)
     end
 
     set_current_counters(article, entry)
@@ -32,19 +33,25 @@ class HackerNewsImporter
     article.comments_count = entry.comments_count
   end
 
-  def extract_content(url)
-    begin
-      result = JSON.load(Boilerpipe.extract(url, {:output => :json}))
-    rescue JSON::ParserError
-      return ""
-    rescue TypeError
-      return ""
-    end
+  def secure_time_extraction(entry)
+    entry.time
+  rescue NoMethodError
+    nil
+  end
 
-    if result["status"] == "success"
-      result['response']['content']
+  def extract_content(url)
+    source = @http_agent.get(url).content
+    Readability::Document.new(source, tags: [], encoding: "UTF-8")
+                            .content
+                            .gsub(/(\s+)|\n/, " ")
+
+  rescue ArgumentError => exception
+    if exception.message.include?("UTF-8")
+      return ""
     else
-      ""
+      raise
     end
+  rescue Mechanize::ResponseCodeError
+    return ""
   end
 end

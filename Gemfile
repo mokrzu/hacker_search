@@ -3,20 +3,21 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.4'
 
-gem 'pg'
+gem 'pg', '~> 0.17.1'
 
 gem 'chewy', '>= 0.4.0'
-gem 'active_data'
+gem 'active_data', '~> 0.3.0'
 
 gem 'ruby-hackernews'
 
-gem "boilerpipe"
+gem "ruby-readability", :require => 'readability'
+gem 'mechanize'
 
-gem 'foundation-rails'
+gem 'foundation-rails', '~> 5.2.2'
 
-gem 'haml-rails'
+gem 'haml-rails', '~> 0.5.3'
 
-gem 'simple_form'
+gem 'simple_form', '~> 3.0.2'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'

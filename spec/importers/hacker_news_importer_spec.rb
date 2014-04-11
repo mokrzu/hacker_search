@@ -10,16 +10,6 @@ describe HackerNewsImporter do
             time: Time.now)
   end
 
-  let!(:content_response) do
-    '''{
-      "status": "success",
-      "response": {
-        "content":
-          "example content"
-      }
-    }'''
-  end
-
   before(:each) do
     entry.stub_chain(:link, :title).and_return "test title"
     entry.stub_chain(:link, :href).and_return "foobar.com"
@@ -28,7 +18,8 @@ describe HackerNewsImporter do
 
     RubyHackernews::Entry.stub(:all).and_return [entry]
 
-    Boilerpipe.stub(:extract).and_return content_response
+    Mechanize.any_instance.stub_chain(:get, :content)
+    Readability::Document.stub_chain(:new, :content).and_return "example content"
   end
 
   context "update existing article" do
