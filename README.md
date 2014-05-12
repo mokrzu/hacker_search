@@ -11,7 +11,6 @@ Project in active development.
 
 Use HackerNewsImporter class for updates:
 ```ruby
-$ rails c
 > HackerNewsImporter.new.import(9) # import last 9 pages from HackerNews
 ....
 ```
@@ -40,7 +39,7 @@ Instead of using default Elastisearch service, which leads to collision between 
 services:
   - elasticsearch
 ```
-Install and run test cluster manualy:
+Install and run test cluster manually:
 ```yml
 # .tavis.yml
 before_install:
@@ -49,7 +48,7 @@ before_install:
 before_script:
   - TEST_CLUSTER_COMMAND="/tmp/elasticsearch-1.0.1/bin/elasticsearch" bundle exec rake elasticsearch:start
 ```
-Now you could specify expicit ES version, and options, if you want.
+Now you could specify explicit ES version, and options, if you want.
 
 **Elasticsearch GUI** could help with debugging.
 
@@ -59,3 +58,12 @@ Try:
 
 **Gemnasium** integration, helped me find out bugs coused by [outdated gems](https://gemnasium.com/mokrzu/hacker_search).
 
+**Text extraction**
+Boilerpipe(API) gem is depends on [external service](http://boilerpipe-web.appspot.com/), which could be unavailable.
+
+Alternative solution is to use [ruby-readability](https://github.com/cantino/ruby-readability/) gem, with custom settings:
+```ruby
+Readability::Document.new(source, tags: [], encoding: "UTF-8")
+                        .content
+                        .gsub(/(\s+)|\n/, " ")
+```
